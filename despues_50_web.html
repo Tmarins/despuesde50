@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Después de los 50 — Tania Marins</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --beige:#F5F0E8;--cream:#FAF7F2;--gold:#C9A84C;--gold-light:#E8D5A3;
+  --gold-dark:#8B6914;--text-dark:#3A3028;--text-mid:#6B5B4E;
+  --text-light:#9B8B7E;--white:#FFFEF9;
+}
+body{font-family:Georgia,serif;background:var(--cream);color:var(--text-dark);}
+a{text-decoration:none;cursor:pointer;}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--gold-light);padding:14px 28px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.logo{font-size:15px;font-weight:600;color:var(--gold-dark);letter-spacing:.5px;}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap;}
+.nav-links a{font-size:12px;color:var(--text-mid);font-family:sans-serif;}
+.nav-links a:hover{color:var(--gold-dark);}
+
+/* SECTIONS */
+.sec{display:none;} .sec.on{display:block;}
+
+/* HERO */
+.hero{background:var(--beige);padding:56px 32px;text-align:center;border-bottom:1px solid var(--gold-light);}
+.hero-tag{font-size:11px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;margin-bottom:14px;font-family:sans-serif;}
+.hero h1{font-size:28px;font-weight:400;color:var(--text-dark);line-height:1.4;margin-bottom:16px;}
+.hero h1 em{color:var(--gold-dark);font-style:italic;}
+.hero-quote{font-size:14px;color:var(--text-mid);font-style:italic;margin-bottom:30px;line-height:1.7;max-width:420px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-g{background:var(--gold);color:var(--white);border:none;padding:11px 24px;border-radius:6px;font-size:13px;cursor:pointer;font-family:sans-serif;}
+.btn-g:hover{background:var(--gold-dark);}
+.btn-o{background:transparent;color:var(--gold-dark);border:1px solid var(--gold);padding:11px 24px;border-radius:6px;font-size:13px;cursor:pointer;font-family:sans-serif;}
+.btn-o:hover{background:var(--gold-light);}
+
+/* PILLARS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 24px;background:var(--white);border-bottom:1px solid var(--gold-light);}
+.pillar{text-align:center;padding:18px 10px;background:var(--beige);border-radius:8px;}
+.pillar-ico{font-size:24px;margin-bottom:8px;}
+.pillar h3{font-size:13px;font-weight:600;color:var(--text-dark);margin-bottom:4px;font-family:sans-serif;}
+.pillar p{font-size:11px;color:var(--text-light);font-family:sans-serif;}
+
+/* EMAIL BAR */
+.email-bar{background:var(--gold-light);padding:24px;text-align:center;border-bottom:1px solid var(--gold);}
+.email-bar p{font-size:14px;color:var(--text-dark);margin-bottom:6px;}
+.email-bar small{font-size:12px;color:var(--text-mid);display:block;margin-bottom:14px;font-family:sans-serif;}
+.eform{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.eform input{padding:10px 14px;border:1px solid var(--gold);border-radius:6px;font-size:13px;background:var(--white);color:var(--text-dark);width:230px;font-family:sans-serif;}
+.eform input:focus{outline:none;border-color:var(--gold-dark);}
+.esuccess{display:none;font-size:13px;color:var(--gold-dark);font-weight:600;margin-top:10px;font-family:sans-serif;}
+
+/* SECTION WRAPPER */
+.swrap{max-width:640px;margin:0 auto;padding:36px 24px;}
+.stag{font-size:11px;letter-spacing:2px;color:var(--gold-dark);text-transform:uppercase;margin-bottom:10px;font-family:sans-serif;}
+.swrap h2{font-size:22px;font-weight:400;color:var(--text-dark);margin-bottom:20px;}
+.swrap p{font-size:14px;color:var(--text-mid);line-height:1.8;margin-bottom:14px;font-family:sans-serif;}
+
+/* TAGS */
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.tag{background:var(--beige);border:1px solid var(--gold-light);color:var(--gold-dark);font-size:11px;padding:4px 12px;border-radius:20px;font-family:sans-serif;}
+
+/* LIBRO */
+.libro{background:var(--beige);border:1px solid var(--gold-light);border-radius:10px;padding:22px;display:flex;gap:18px;align-items:flex-start;}
+.libro-cover{width:72px;height:100px;background:var(--gold);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.libro-cover span{font-size:9px;color:var(--white);text-align:center;padding:6px;line-height:1.4;font-family:sans-serif;}
+.libro-info h3{font-size:15px;font-weight:400;color:var(--text-dark);margin-bottom:6px;}
+.libro-info p{font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:14px;}
+.stars{color:var(--gold);font-size:14px;margin-bottom:8px;}
+
+/* REF CARDS */
+.ref-card{background:var(--white);border:1px solid var(--gold-light);border-radius:10px;padding:22px;margin-bottom:14px;}
+.ref-card h3{font-size:15px;font-weight:400;color:var(--text-dark);margin-bottom:10px;}
+.ref-card p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px;font-family:sans-serif;}
+.ref-q{background:var(--beige);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:10px;}
+.ref-q p{font-size:12px;color:var(--text-mid);font-style:italic;margin:0;}
+textarea{width:100%;border:1px solid var(--gold-light);border-radius:6px;padding:9px 12px;font-size:13px;background:var(--cream);color:var(--text-dark);resize:none;font-family:sans-serif;}
+textarea:focus{outline:none;border-color:var(--gold);}
+.btn-save{background:var(--gold);color:var(--white);border:none;padding:8px 18px;border-radius:6px;font-size:12px;cursor:pointer;margin-top:8px;font-family:sans-serif;}
+.saved-msg{display:none;font-size:12px;color:var(--gold-dark);margin-top:6px;font-family:sans-serif;}
+
+/* QUIZ */
+.quiz-wrap{max-width:520px;}
+.qprog{height:4px;background:var(--gold-light);border-radius:2px;margin-bottom:22px;}
+.qbar{height:4px;background:var(--gold);border-radius:2px;transition:width .3s;}
+.qnum{font-size:11px;color:var(--text-light);margin-bottom:8px;font-family:sans-serif;}
+.qqn{font-size:15px;color:var(--text-dark);margin-bottom:16px;line-height:1.5;}
+.qopts{display:flex;flex-direction:column;gap:8px;}
+.qopt{background:var(--white);border:1px solid var(--gold-light);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--text-mid);cursor:pointer;text-align:left;font-family:sans-serif;}
+.qopt:hover{border-color:var(--gold);color:var(--text-dark);}
+.qresult{background:var(--white);border:1px solid var(--gold);border-radius:10px;padding:24px;display:none;}
+.qresult h3{font-size:17px;font-weight:400;color:var(--gold-dark);margin-bottom:12px;}
+.qresult p{font-size:13px;color:var(--text-mid);line-height:1.7;font-family:sans-serif;}
+
+/* COCINA */
+.receta{background:var(--beige);border:1px solid var(--gold-light);border-radius:10px;padding:22px;}
+.receta h3{font-size:15px;font-weight:400;color:var(--text-dark);margin-bottom:4px;}
+.receta-meta{font-size:11px;color:var(--gold-dark);margin-bottom:16px;font-family:sans-serif;}
+.steps{list-style:none;}
+.steps li{font-size:13px;color:var(--text-mid);padding:9px 0;border-bottom:1px solid var(--gold-light);display:flex;gap:12px;align-items:flex-start;line-height:1.5;font-family:sans-serif;}
+.steps li:last-child{border:none;}
+.sn{background:var(--gold);color:var(--white);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px;font-family:sans-serif;}
+.metafora{background:var(--white);border-left:3px solid var(--gold);padding:14px 16px;margin-top:18px;border-radius:0 8px 8px 0;}
+.metafora p{font-size:13px;color:var(--text-mid);font-style:italic;line-height:1.7;}
+
+/* GALERIA */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.gal-item{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-mid);text-align:center;padding:8px;border:1px solid var(--gold-light);cursor:pointer;font-family:sans-serif;}
+.gal-note{font-size:12px;color:var(--text-light);margin-top:12px;text-align:center;font-family:sans-serif;}
+
+/* CONTACTO */
+.soc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.soc-card{background:var(--white);border:1px solid var(--gold-light);border-radius:8px;padding:14px;display:flex;align-items:center;gap:12px;cursor:pointer;}
+.soc-card:hover{border-color:var(--gold);}
+.soc-ico{width:34px;height:34px;border-radius:8px;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.soc-info p{font-size:13px;font-weight:600;color:var(--text-dark);font-family:sans-serif;}
+.soc-info span{font-size:11px;color:var(--text-light);font-family:sans-serif;}
+
+/* FOOTER */
+footer{background:var(--text-dark);padding:22px 24px;text-align:center;}
+footer p{font-size:12px;color:#9B8B7E;font-family:sans-serif;}
+footer span{color:var(--gold);}
+
+/* WA FLOAT */
+.wa{position:fixed;bottom:20px;right:20px;z-index:200;}
+.wa-btn{width:48px;height:48px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+
+@media(max-width:520px){
+  .pillars{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);}
+  .soc-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Después de los 50</div>
+  <div class="nav-links">
+    <a onclick="go('inicio')">Inicio</a>
+    <a onclick="go('sobre')">Sobre mí</a>
+    <a onclick="go('libros')">Libros</a>
+    <a onclick="go('reflexion')">Reflexiones</a>
+    <a onclick="go('cocina')">Cocina</a>
+    <a onclick="go('quiz')">Quiz</a>
+    <a onclick="go('galeria')">Galería</a>
+    <a onclick="go('contacto')">Contacto</a>
+  </div>
+</nav>
+
+<!-- INICIO -->
+<div id="s-inicio" class="sec on">
+  <div class="hero">
+    <div class="hero-tag">Bienvenida a tu espacio</div>
+    <h1>Nunca es tarde para<br><em>volver a florecer</em></h1>
+    <p class="hero-quote">"No estás rota. Estás en reconstrucción.<br>Y Dios es el arquitecto."</p>
+    <div class="hero-btns">
+      <button class="btn-g" onclick="go('libros')">Mi libro</button>
+      <button class="btn-o" onclick="go('quiz')">Descubre tu etapa</button>
+    </div>
+  </div>
+  <div class="pillars">
+    <div class="pillar"><div class="pillar-ico">✦</div><h3>Fe</h3><p>Reflexiones que sanan</p></div>
+    <div class="pillar"><div class="pillar-ico">◈</div><h3>Cocina</h3><p>Recetas con alma</p></div>
+    <div class="pillar"><div class="pillar-ico">◇</div><h3>Escritura</h3><p>Palabras que liberan</p></div>
+  </div>
+  <div class="email-bar">
+    <p>Únete a la comunidad de mujeres después de los 50</p>
+    <small>Recibe el Prólogo + Capítulo 1 de <em>Reconstrucción</em> — completamente gratis</small>
+    <div class="eform">
+      <input type="email" id="email-in" placeholder="tu@email.com" />
+      <button class="btn-g" onclick="suscribir()">Quiero unirme</button>
+    </div>
+    <p class="esuccess" id="esuccess">✦ ¡Bienvenida! Revisa tu correo.</p>
+  </div>
+</div>
+
+<!-- SOBRE MI -->
+<div id="s-sobre" class="sec">
+  <div class="swrap">
+    <div class="stag">Mi historia</div>
+    <h2>Soy Tania</h2>
+    <p>Escritora espiritual, creadora de contenido y mujer que a los 58 años sigue aprendiendo que la vida no termina — se transforma. Vivo en el País Vasco, sirvo a mi congregación, estudio gastronomía y teología, y escribo para todas las que sienten que algo en ellas está renaciendo.</p>
+    <p>Creo que <em>Dios es el arquitecto</em> de cada nueva etapa. Esta plataforma nació para acompañarte en la tuya — en la fe, en la cocina, en la escritura de tu propio relato.</p>
+    <div class="tags">
+      <span class="tag">Fe evangélica</span>
+      <span class="tag">Escritura espiritual</span>
+      <span class="tag">Gastronomía</span>
+      <span class="tag">Bilbao</span>
+      <span class="tag">58 años</span>
+    </div>
+  </div>
+</div>
+
+<!-- LIBROS -->
+<div id="s-libros" class="sec">
+  <div class="swrap">
+    <div class="stag">Mis libros</div>
+    <h2>Palabras que reconstruyen</h2>
+    <div class="libro">
+      <div class="libro-cover"><span>Reconstrucción</span></div>
+      <div class="libro-info">
+        <div class="stars">★★★★★</div>
+        <h3>Reconstrucción: 10 reflexiones para volver a conectarte con Dios</h3>
+        <p>Un libro íntimo y esperanzador para la mujer que siente que perdió el rumbo y quiere encontrar el camino de regreso a Dios y a sí misma.</p>
+        <button class="btn-g" onclick="window.open('https://www.amazon.es/dp/B0H2CTLMZW','_blank')">Comprar en Amazon →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REFLEXIONES -->
+<div id="s-reflexion" class="sec">
+  <div class="swrap">
+    <div class="stag">Para el alma</div>
+    <h2>Reflexiones</h2>
+    <div class="ref-card">
+      <h3>¿Qué significa reconstruirse después de los 50?</h3>
+      <p>Hay momentos en que miramos el espejo y no reconocemos del todo a quien nos devuelve la mirada. No porque nos hayamos perdido — sino porque estamos siendo rehachas. La reconstrucción no es el final. Es el principio más honesto.</p>
+      <div class="ref-q"><p>¿En qué parte de tu vida sientes que Dios está reconstruyendo algo?</p></div>
+      <textarea id="r1" rows="3" placeholder="Escribe tu reflexión aquí..."></textarea><br>
+      <button class="btn-save" onclick="guardar('r1','s1')">Guardar mi reflexión</button>
+      <p class="saved-msg" id="s1">✦ Guardada. Que estas palabras sean semilla.</p>
+    </div>
+    <div class="ref-card">
+      <h3>La cocina como altar</h3>
+      <p>Hay algo sagrado en el acto de preparar alimento para otros. En el vapor que sube de la olla, en el olor del pan que hornea. La cocina, como la oración, exige presencia total.</p>
+      <div class="ref-q"><p>¿Qué espacio cotidiano se ha convertido para ti en lugar de encuentro con Dios?</p></div>
+      <textarea id="r2" rows="3" placeholder="Escribe tu reflexión aquí..."></textarea><br>
+      <button class="btn-save" onclick="guardar('r2','s2')">Guardar mi reflexión</button>
+      <p class="saved-msg" id="s2">✦ Guardada. Que estas palabras sean semilla.</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="s-quiz" class="sec">
+  <div class="swrap">
+    <div class="stag">Descúbrete</div>
+    <h2>¿En qué etapa de reconstrucción estás?</h2>
+    <div class="quiz-wrap">
+      <div class="qprog"><div class="qbar" id="qbar" style="width:0%"></div></div>
+      <div id="qbody"></div>
+      <div class="qresult" id="qresult">
+        <h3 id="rtitle"></h3>
+        <p id="rbody"></p>
+        <br>
+        <button class="btn-o" onclick="resetQ()">Volver a intentarlo</button>
+        <button class="btn-g" style="margin-left:8px" onclick="go('libros')">Ver mi libro</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COCINA -->
+<div id="s-cocina" class="sec">
+  <div class="swrap">
+    <div class="stag">Recetas con alma</div>
+    <h2>Cocina espiritual</h2>
+    <div class="receta">
+      <h3>Sopa de lentejas de la abuela</h3>
+      <p class="receta-meta">30 min · 4 personas · Reconfortante</p>
+      <ol class="steps">
+        <li><span class="sn">1</span>Sofríe cebolla, ajo y zanahoria en aceite de oliva hasta dorar.</li>
+        <li><span class="sn">2</span>Añade las lentejas lavadas y caldo de verduras caliente.</li>
+        <li><span class="sn">3</span>Incorpora una hoja de laurel, pimentón y sal al gusto.</li>
+        <li><span class="sn">4</span>Cocina a fuego medio 25 minutos, hasta que las lentejas estén tiernas.</li>
+        <li><span class="sn">5</span>Sirve con un chorrito de vinagre y pan de pueblo.</li>
+      </ol>
+      <div class="metafora">
+        <p>"Como las lentejas que se ablandan con el tiempo y el calor, nosotras también necesitamos ese fuego lento de la gracia para transformarnos."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<div id="s-galeria" class="sec">
+  <div class="swrap">
+    <div class="stag">Mi mundo</div>
+    <h2>Galería</h2>
+    <div class="gal-grid">
+      <div class="gal-item" style="background:#F0EAD6;">Fe y oración</div>
+      <div class="gal-item" style="background:#EDE0C8;">Cocina del alma</div>
+      <div class="gal-item" style="background:#E8D9B8;">Mis escritos</div>
+      <div class="gal-item" style="background:#F2EAD0;">País Vasco</div>
+      <div class="gal-item" style="background:#EBE1C5;">Mi comunidad</div>
+      <div class="gal-item" style="background:#F5EDD8;">Cada día</div>
+    </div>
+    <p class="gal-note">Aquí irán tus fotos reales — estos son marcadores de posición</p>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<div id="s-contacto" class="sec">
+  <div class="swrap">
+    <div class="stag">Conectemos</div>
+    <h2>Encuentra tu espacio aquí</h2>
+    <div class="soc-grid">
+      <div class="soc-card" onclick="window.open('https://instagram.com/marinstania','_blank')">
+        <div class="soc-ico">📷</div>
+        <div class="soc-info"><p>Instagram</p><span>@marinstania</span></div>
+      </div>
+      <div class="soc-card" onclick="window.open('https://youtube.com/@tmmarins1','_blank')">
+        <div class="soc-ico">▶</div>
+        <div class="soc-info"><p>YouTube</p><span>@tmmarins1</span></div>
+      </div>
+      <div class="soc-card">
+        <div class="soc-ico">✉</div>
+        <div class="soc-info"><p>Substack</p><span>Newsletter semanal</span></div>
+      </div>
+      <div class="soc-card" onclick="window.open('https://wa.me/34697767056','_blank')">
+        <div class="soc-ico">💬</div>
+        <div class="soc-info"><p>WhatsApp directo</p><span>Escríbeme</span></div>
+      </div>
+      <div class="soc-card" onclick="window.open('https://wa.me/34697767056','_blank')">
+        <div class="soc-ico">📢</div>
+        <div class="soc-info"><p>Canal WhatsApp</p><span>Únete a la comunidad</span></div>
+      </div>
+      <div class="soc-card" onclick="window.open('https://www.amazon.es/dp/B0H2CTLMZW','_blank')">
+        <div class="soc-ico">📖</div>
+        <div class="soc-info"><p>Mi libro</p><span>Amazon</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <span>Después de los 50</span> · Tania Marins · <span>Dios es el arquitecto</span></p>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<div class="wa">
+  <div class="wa-btn" onclick="window.open('https://wa.me/34697767056','_blank')" title="WhatsApp">💬</div>
+</div>
+
+<script>
+const Qs=[
+  {q:"Cuando piensas en tu vida hoy, ¿qué imagen te viene primero?",opts:["Una puerta cerrada que no sé cómo abrir","Un camino que empieza a aclararse","Un terreno después de la tormenta, listo para sembrar","Un jardín que ya florece, aunque con algunas espinas"]},
+  {q:"¿Cómo describes tu relación con Dios en este momento?",opts:["Distante — me siento lejos de Él","Buscando — quiero reconectarme","Creciendo — estoy aprendiendo a confiar de nuevo","Cercana — aunque hay días difíciles"]},
+  {q:"¿Qué necesitas más ahora mismo?",opts:["Que alguien me entienda sin juzgarme","Dirección — saber hacia dónde ir","Fuerza para dar el siguiente paso","Herramientas para seguir construyendo"]}
+];
+const Rs=[
+  {t:"Etapa 1: En el umbral",b:"Estás en ese momento sagrado entre lo que fue y lo que será. No hay nada malo en estar aquí — es el principio de toda reconstrucción. Dios ve exactamente dónde estás."},
+  {t:"Etapa 2: En búsqueda",b:"Ya diste el paso más valiente: buscar. Tu corazón está abierto y eso es todo lo que Dios necesita para comenzar a moverse en tu vida."},
+  {t:"Etapa 3: En proceso",b:"Estás en el corazón de la reconstrucción. Es el tramo más exigente, pero también el más transformador. Cada paso cuenta, aunque no lo veas aún."},
+  {t:"Etapa 4: Floreciendo",b:"Has recorrido un camino real. No sin heridas, pero con fe. Ahora puedes ser luz para otras que están donde tú estuviste."}
+];
+let qi=0,sc=[0,0,0,0];
+
+function renderQ(){
+  if(qi>=Qs.length){showR();return;}
+  const q=Qs[qi];
+  document.getElementById('qbar').style.width=(qi/Qs.length*100)+'%';
+  document.getElementById('qbody').innerHTML=
+    `<p class="qnum">Pregunta ${qi+1} de ${Qs.length}</p>
+     <p class="qqn">${q.q}</p>
+     <div class="qopts">${q.opts.map((o,i)=>`<button class="qopt" onclick="selQ(${i})">${o}</button>`).join('')}</div>`;
+}
+function selQ(i){sc[i]++;qi++;renderQ();}
+function showR(){
+  document.getElementById('qbody').innerHTML='';
+  document.getElementById('qbar').style.width='100%';
+  const top=sc.indexOf(Math.max(...sc));
+  document.getElementById('rtitle').textContent=Rs[top].t;
+  document.getElementById('rbody').textContent=Rs[top].b;
+  document.getElementById('qresult').style.display='block';
+}
+function resetQ(){qi=0;sc=[0,0,0,0];document.getElementById('qresult').style.display='none';renderQ();}
+
+function go(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.getElementById('s-'+id).classList.add('on');
+  window.scrollTo(0,0);
+}
+function suscribir(){
+  const v=document.getElementById('email-in').value;
+  if(!v||!v.includes('@')){document.getElementById('email-in').focus();return;}
+  document.querySelector('.eform').style.display='none';
+  document.getElementById('esuccess').style.display='block';
+}
+function guardar(rid,sid){
+  if(!document.getElementById(rid).value.trim())return;
+  document.getElementById(sid).style.display='block';
+}
+
+renderQ();
+</script>
+</body>
+</html>
